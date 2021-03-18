@@ -282,6 +282,13 @@ elif [ "${shortname}" == "cod" ]; then
 	fn_default_config_remote
 	fn_set_config_vars
 	fn_list_config_locations
+elif [ "${shortname}" == "cff" ]; then
+	gamedirname="Citadel"
+	array_configs+=( Game.ini Engine.ini )
+	fn_fetch_default_config
+	fn_default_config_remote
+	fn_set_config_vars
+	fn_list_config_locations
 elif [ "${shortname}" == "coduo" ]; then
 	gamedirname="CallOfDutyUnitedOffensive"
 	array_configs+=( server.cfg )

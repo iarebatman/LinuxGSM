@@ -233,6 +233,17 @@ fn_info_config_bfv(){
 	fi
 }
 
+fn_info_config_cff(){
+	if [ ! -f "${servercfgfullpath}" ]; then
+		servername="${unavailable}"
+	else
+		servername=$(grep "ServerName" "${servercfgfullpath}" | awk -F '=' '{print $2}')
+
+		# Not set
+		servername=${servername:-"NOT SET"}
+	fi
+}
+
 fn_info_config_chivalry(){
 	if [ ! -f "${servercfgfullpath}" ]; then
 		servername="${unavailable}"
@@ -1603,6 +1614,8 @@ elif [ "${shortname}" == "bf1942" ]; then
 	fn_info_config_bf1942
 elif [ "${shortname}" == "bfv" ]; then
 	fn_info_config_bfv
+elif [ "${shortname}" == "cff" ]; then
+	fn_info_config_cff
 elif [ "${shortname}" == "cmw" ]; then
 	fn_info_config_chivalry
 elif [ "${shortname}" == "cod" ]||[ "${shortname}" == "coduo" ]; then
